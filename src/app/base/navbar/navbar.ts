@@ -8,4 +8,10 @@ import { Component } from '@angular/core';
 })
 export class Navbar {
 
+  urlParams = new URLSearchParams(window.location.search);
+  role: string = (this.urlParams.get("role") || "cliente").toUpperCase();
+
+  constructor() {
+  }
+
 }

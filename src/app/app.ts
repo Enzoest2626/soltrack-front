@@ -1,10 +1,13 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { AuthPageComponent } from "./pages/authentication/authentication-page.component";
+import { Navbar } from "./base/navbar/navbar";
+import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, AuthPageComponent],
+  imports: [RouterOutlet, Navbar, CommonModule],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
