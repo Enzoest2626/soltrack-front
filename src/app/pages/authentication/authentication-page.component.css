@@ -1,0 +1,12 @@
+/* Estilos específicos para el componente de autenticación */
+.error-message {
+  @apply text-red-600 text-sm mt-1;
+}
+
+.field-error {
+  @apply border-red-500 focus:ring-red-500;
+}
+
+.loading-spinner {
+  @apply animate-spin;
+}
