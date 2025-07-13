@@ -30,7 +30,7 @@ export class Lubricant {
   }) 
 
 
-  save(e: any) {
+  save() {
     if (this.form.invalid) {
       this.toastr.error("Llene todos los campos", "Incorrecto", {positionClass: 'toast-bottom-right'});
       return;
