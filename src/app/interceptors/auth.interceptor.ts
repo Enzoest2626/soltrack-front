@@ -1,31 +1,34 @@
-import { Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import {
   HttpInterceptor,
   HttpRequest,
   HttpHandler,
   HttpEvent,
+  HttpInterceptorFn,
 } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { catchError, Observable, throwError } from 'rxjs';
 import { AuthService } from '../services/auth.service';
+import { ToastrService } from 'ngx-toastr';
 
-@Injectable()
-export class AuthInterceptor implements HttpInterceptor {
-  constructor(private authService: AuthService) {}
 
-  intercept(
-    request: HttpRequest<any>,
-    next: HttpHandler
-  ): Observable<HttpEvent<any>> {
-    const token = this.authService.getToken();
+export const httpAuthInterceptor: HttpInterceptorFn = (req, next) => {
+    const authService = inject(AuthService);
+    
+    const toast: ToastrService = inject(ToastrService);
+    const token = authService.getToken();
 
     if (token) {
-      request = request.clone({
+      req = req.clone({
         setHeaders: {
           Authorization: `Bearer ${token}`,
         },
       });
     }
 
-    return next.handle(request);
+    return next(req).pipe(
+        catchError((err) => {
+            toast.error(err.message, "Error inesperado", {positionClass: 'toast-bottom-right'});
+            return throwError(() => err);
+        })
+    );
   }
-}

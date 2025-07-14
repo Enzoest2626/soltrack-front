@@ -5,6 +5,7 @@ export interface LoginRequest {
 
 export interface LoginResponse {
   token: string;
+  role: string
 }
 
 export interface AuthState {
@@ -13,4 +14,5 @@ export interface AuthState {
   user: any | null;
   loading: boolean;
   error: string | null;
+  role: string | null;
 }

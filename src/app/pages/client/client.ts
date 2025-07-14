@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { ClientService } from '../../core/services/Client.service';
+import { ClientService } from '../../services/Client.service';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { tap } from 'rxjs';
@@ -54,13 +54,13 @@ export class Client {
 
     this.clientService.save(data).subscribe(() => {
       this.toastr.success("Cliente registrado", "Exitoso", {positionClass: 'toast-bottom-right'});
-      this.router.navigate(["/dashboard"], {
+      this.router.navigate(["/home"], {
         skipLocationChange: true
       })
     })
   }
 
   back() {
-    this.router.navigate(["/dashboard"]);
+    this.router.navigate(["/home"]);
   }
 }

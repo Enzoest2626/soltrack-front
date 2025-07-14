@@ -10,8 +10,8 @@
             <h1 class="text-2xl font-bold text-gray-800">SmartLab</h1>
           </div>
           <div class="flex items-center space-x-4">
-            <span class="text-sm text-gray-600" id="userRole">Rol: {{ role }}</span>
-            <button
+            <span class="text-sm text-gray-600" id="userRole">Bienvenido, {{ userEmail }}</span>
+            <button (click)="logout()" type="button"
               class="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-lg text-sm font-medium transition duration-200"
             >
               <i class="fas fa-sign-out-alt mr-2"></i>Cerrar Sesión

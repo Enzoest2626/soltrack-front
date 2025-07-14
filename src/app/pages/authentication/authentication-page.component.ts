@@ -44,7 +44,7 @@ export class AuthPageComponent implements OnInit, OnDestroy {
 
         // Si está autenticado, redirigir al dashboard
         if (state.isAuthenticated) {
-          this.router.navigate(['/dashboard']);
+          this.router.navigate(['/home']);
         }
       });
   }

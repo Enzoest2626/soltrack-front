@@ -1,5 +1,6 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -7,28 +8,29 @@ import { Router } from '@angular/router';
   templateUrl: './dashboard.html',
   styleUrl: './dashboard.css'
 })
-export class Dashboard {
+export class Dashboard implements OnInit{
+  
+  authService = inject(AuthService);
+  
   // Obtener el rol de la URL
-  urlParams = new URLSearchParams(window.location.search);
-  role: string = 'administrador'
   router: Router = inject(Router);
 
   // Definir las funcionalidades por rol
   roleFunctions: any = {
-    administrador: [
+    ADMIN: [
       {
         title: "Registrar Lubricante",
         description: "Gestionar el registro de lubricantes en el sistema",
         icon: "fas fa-oil-can",
         color: "from-green-500 to-emerald-600",
-        href: "/lubricant",
+        href: "/home/lubricant",
       },
       {
         title: "Registrar Cliente",
         description: "Crear y gestionar cuentas de clientes",
         icon: "fas fa-user-plus",
         color: "from-blue-500 to-cyan-600",
-        href: "/client",
+        href: "/home/client",
       },
     ],
     cliente: [
@@ -58,20 +60,15 @@ export class Dashboard {
     ],
   };
 
-  functions: any[] = this.roleFunctions[this.role] || [];
-
-
-  // Función para navegar a otras páginas
-  navigateTo(page: any) {
-    window.location.href = page;
-  }
-
-  // Función para cerrar sesión
-  logout() {
-    window.location.href = "index.html";
-  }
+  functions: any[] = [];
 
   goTo(url: string): void {
     this.router.navigate([url])
+  }
+
+  ngOnInit(): void {
+    const role = this.authService.getRole();
+
+    this.functions = this.roleFunctions[role] || []
   }
 }

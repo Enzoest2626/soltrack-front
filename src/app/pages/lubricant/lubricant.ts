@@ -1,7 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { LubricantService } from '../../core/services/Lubricant.service';
+import { LubricantService } from '../../services/Lubricant.service';
 import { ToastrService } from 'ngx-toastr';
 
 @Component({
@@ -40,12 +40,12 @@ export class Lubricant {
 
     this.lubricantService.save(data).subscribe((data) => {
       this.toastr.success("Lubricante registrado", "Exitoso", {positionClass: 'toast-bottom-right'});
-      this.router.navigate(["/dashboard"], {skipLocationChange: true});
+      this.router.navigate(["/home"], {skipLocationChange: true});
     });
       
   }
 
   back() {
-    this.router.navigate(["/dashboard"]);
+    this.router.navigate(["/home"]);
   }
 }
