@@ -18,6 +18,7 @@ export class AuthService {
     user: null,
     loading: false,
     error: null,
+    role: null
   });
 
   public authState$ = this.authStateSubject.asObservable();
@@ -35,6 +36,7 @@ export class AuthService {
         user: this.decodeToken(token),
         loading: false,
         error: null,
+        role: null //setear el role
       });
     }
   }
@@ -64,6 +66,7 @@ export class AuthService {
       user,
       loading: false,
       error: null,
+      role: response.role
     });
   }
 
@@ -94,6 +97,7 @@ export class AuthService {
       user: null,
       loading: false,
       error: null,
+      role: null
     });
   }
 
@@ -130,5 +134,9 @@ export class AuthService {
 
   getCurrentUser(): any {
     return this.authStateSubject.value.user;
+  }
+
+  getRole(): any {
+    return this.authStateSubject.value.role;
   }
 }

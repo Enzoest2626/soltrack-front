@@ -1,0 +1,41 @@
+<main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <!-- Welcome Section -->
+    <div class="mb-8">
+        <h2 class="text-3xl font-bold text-gray-800 mb-2">
+            Bienvenido al Dashboard
+        </h2>
+        <p class="text-gray-600">Selecciona una funcionalidad para comenzar</p>
+    </div>
+
+    <!-- Cards Container -->
+    <div id="cardsContainer" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Las tarjetas se cargarán dinámicamente según el rol -->
+        @for (item of functions; track $index) {
+        <div
+            class="bg-white rounded-xl shadow-lg hover:shadow-xl transition duration-300 transform hover:-translate-y-1">
+            <div class="p-6">
+                <div class="flex items-center mb-4">
+                    <div
+                        class="bg-gradient-to-r w-12 h-12 rounded-lg flex items-center justify-center mr-4" [classList]="item.color">
+                        <i class="text-white text-xl" [classList]="item.icon"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-800">{{item.title}}</h3>
+                </div>
+                <p class="text-gray-600 mb-6">{{item.description}}</p>
+                <button
+                    class="w-full bg-gradient-to-r text-white py-3 px-4 rounded-lg font-semibold hover:opacity-90 transform hover:scale-105 transition duration-200"
+                    [classList]="item.color" (click)="goTo(item.href)"
+                    >
+                    <a class="fas fa-arrow-right mr-2" ></a>Acceder
+                </button>
+            </div>
+        </div>
+        } @empty {
+        <div class="col-span-full text-center py-12">
+            <i class="fas fa-exclamation-triangle text-4xl text-gray-400 mb-4"></i>
+            <h3 class="text-xl font-semibold text-gray-600 mb-2">No hay funcionalidades disponibles</h3>
+            <p class="text-gray-500">Este rol no tiene funcionalidades asignadas.</p>
+        </div>
+        }
+    </div>
+</main>
