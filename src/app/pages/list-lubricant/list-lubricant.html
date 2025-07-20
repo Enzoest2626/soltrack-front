@@ -1,0 +1,53 @@
+<main class="max-w-8xl mx-auto px-4 sm:px-6 lg:px-10 py-10">
+    <div class="bg-white rounded-xl shadow-lg p-8">
+        <div class="mb-8">
+            <div class="d-flex justify-content-between">
+                <h2 class="text-2xl font-bold text-gray-800 mb-2">
+                    Listado de Clientes
+                </h2>
+                <div>
+                    <button (click)="back()" class="btn btn-secondary">Volver</button>
+                </div>
+            </div>
+            
+            @if (loading) {
+            <div class="alert alert-info">Cargando...</div>
+            } @else {
+            @if (list.length > 0) {
+            <table class="table table-bordered table-striped mt-3">
+                <thead class="table-dark">
+                    <tr>
+                        <th>Código</th>
+                        <th>Nombre</th>
+                        <th>Fabricante</th>
+                        <th>Tipo Lubricante</th>
+                        <th>Viscosidad</th>
+                        <th>Densidad</th>
+                        <th>Punto Ignición</th>
+                        <th>Estado</th>
+                        <th>Usuario Adición</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @for (lubricant of list; track $index) {
+                    <tr>
+                        <td>{{ lubricant.codigoLub }}</td>
+                        <td>{{ lubricant.nombreLub }}</td>
+                        <td>{{ lubricant.fabricante }}</td>
+                        <td>{{ lubricant.tipoLubricante }}</td>
+                        <td>{{ lubricant.viscosidad }}</td>
+                        <td>{{ lubricant.puntoIgnicion }}</td>
+                        <td>{{ lubricant.densidad }}</td>
+                        <td>{{ lubricant.estado ? 'Activo' : 'Inactivo' }}</td>
+                        <td>{{ lubricant.usuaCrea }}</td>
+                    </tr>
+                    }
+                </tbody>
+            </table>
+            } @else {
+            <div class="alert alert-warning">No hay clientes.</div>
+            }
+            }
+        </div>
+    </div>
+</main>

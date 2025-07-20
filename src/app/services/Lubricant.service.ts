@@ -18,4 +18,8 @@ export class LubricantService {
     private update(data: any): Observable<any> {
         return this.httpClient.put(this.url, data);
     }
+
+    public findAll(): Observable<any> {
+        return this.httpClient.get(this.url);
+    }
 }

@@ -5,6 +5,8 @@ import { Lubricant } from './pages/lubricant/lubricant';
 import { Client } from './pages/client/client';
 import { Dashboard } from './pages/dashboard/dashboard';
 import { Home } from './base/home/home';
+import { ListClient } from './pages/list-client/list-client';
+import { ListLubricant } from './pages/list-lubricant/list-lubricant';
 
 export const routes: Routes = [
     { path: '', component: AuthPageComponent },
@@ -24,6 +26,14 @@ export const routes: Routes = [
             {
                 path: 'client',
                 component: Client
+            },
+            {
+                path: 'client-list',
+                component: ListClient
+            },
+            {
+                path: 'lubricant-list',
+                component: ListLubricant
             },
             {
                 path: '**',

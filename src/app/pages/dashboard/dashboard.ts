@@ -26,12 +26,27 @@ export class Dashboard implements OnInit{
         href: "/home/lubricant",
       },
       {
+        title: "Listar Lubricante",
+        description: "Listado lubricantes registrados",
+        icon: "fas fa-user-plus",
+        color: "from-blue-500 to-cyan-600",
+        href: "/home/lubricant-list",
+      },
+      {
         title: "Registrar Cliente",
         description: "Crear y gestionar cuentas de clientes",
         icon: "fas fa-user-plus",
         color: "from-blue-500 to-cyan-600",
         href: "/home/client",
       },
+      {
+        title: "Listar Cliente",
+        description: "Listado clientes registrados",
+        icon: "fas fa-user-plus",
+        color: "from-blue-500 to-cyan-600",
+        href: "/home/client-list",
+      },
+      
     ],
     cliente: [
       {

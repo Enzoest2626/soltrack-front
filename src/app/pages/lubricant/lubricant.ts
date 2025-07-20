@@ -21,7 +21,7 @@ export class Lubricant {
     codigoLub: [null, [Validators.required]],
     nombreLub: [null, [Validators.required]],
     fabricante: [null, [Validators.required]],
-    tipoFabricante: [null],
+    tipoLubricante: [null],
     viscosidad: [null, [Validators.required]],
     densidad: [null, [Validators.required]],
     puntoIgnicion: [null, [Validators.required]],
@@ -36,9 +36,10 @@ export class Lubricant {
       return;
     };
 
-    const data = this.form.value;
+    const request = this.form.value;
+    console.log(request);
 
-    this.lubricantService.save(data).subscribe((data) => {
+    this.lubricantService.save(request).subscribe((data) => {
       this.toastr.success("Lubricante registrado", "Exitoso", {positionClass: 'toast-bottom-right'});
       this.router.navigate(["/home"], {skipLocationChange: true});
     });
