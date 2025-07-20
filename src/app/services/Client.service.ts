@@ -18,5 +18,7 @@ export class ClientService {
         return this.httpClient.get(this.url +"/findByRuc/" + ruc);
     }
 
-    
+    public findAll(): Observable<any> {
+        return this.httpClient.get(this.url);
+    }
 }
