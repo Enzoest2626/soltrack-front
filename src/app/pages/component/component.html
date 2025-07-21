@@ -1,0 +1,53 @@
+<main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+  <div class="bg-white rounded-xl shadow-lg p-8">
+    <div class="mb-8">
+      <h2 class="text-2xl font-bold text-gray-800 mb-2">
+        Registro de Equipo
+      </h2>
+      <p class="text-gray-600">
+        Ingresar los datos requeridos en los campos para ingresar un nuevo Equipo en el sistema
+      </p>
+    </div>
+
+    <form id="component" class="space-y-6" [formGroup]="form">
+      <!-- Información Básica -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div>
+          <label for="nombre" class="block text-sm font-medium text-gray-700 mb-2">
+            <i class="fas fa-tag mr-2"></i>Nombre de componente
+          </label>
+          <input type="text" formControlName="nombreComponente"
+                 class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent transition duration-200"
+                 placeholder="Nombre de componente" />
+        </div>
+
+        <div>
+          <label for="codigoequipo" class="block text-sm font-medium text-gray-700 mb-2">
+            <i class="fas fa-tag mr-2"></i>Equipo
+          </label>
+          <select formControlName="idEquipo"
+                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent transition duration-200">
+                        <option value="" selected >Seleccione un Componente</option>
+                        @for (item of listEquipo; track $index) {
+                            <option [value]="item.idEquipo">{{item.nomEquipo}}</option>
+                        }
+                    </select>
+        </div>
+      </div>
+
+
+
+      <!-- Botones de Acción -->
+      <div class="flex justify-end space-x-4 pt-6 border-t">
+        <button (click)="back()" type="button"
+                class="px-6 py-3 border border-gray-300 text-gray-700 rounded-lg font-medium hover:bg-gray-50 transition duration-200">
+          <i class="fas fa-times mr-2"></i>Cancelar
+        </button>
+        <button (click)="save()"
+                class="px-6 py-3 bg-gradient-to-r button-submit from-green-500 to-emerald-600 text-white rounded-lg font-medium hover:from-green-600 hover:to-emerald-700 transform hover:scale-105 transition duration-200">
+          <i class="fas fa-save mr-2"></i>Registrar Equipo
+        </button>
+      </div>
+    </form>
+  </div>
+</main>

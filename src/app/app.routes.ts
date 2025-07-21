@@ -10,6 +10,8 @@ import { ListLubricant } from './pages/list-lubricant/list-lubricant';
 import { RegistrarResultados } from './pages/registrar-resultados/registrar-resultados';
 import { ListResultado } from './pages/list-resultado/list-resultado';
 import { Application } from './pages/application/application';
+import { Equipo } from './pages/equipo/equipo';
+import { component } from './pages/component/component';
 
 export const routes: Routes = [
     { path: '', component: AuthPageComponent },
@@ -20,7 +22,7 @@ export const routes: Routes = [
         children: [
             {
                 path: '',
-                component: Dashboard 
+                component: Dashboard
             },
             {
                 path: 'lubricant',
@@ -37,6 +39,14 @@ export const routes: Routes = [
             {
                 path: 'lubricant-list',
                 component: ListLubricant
+            },
+            {
+                path: 'equipo',
+                component: Equipo
+            },
+            {
+                path: 'component',
+                component: component
             },
             {
                 path: 'application',

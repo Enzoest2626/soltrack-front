@@ -17,4 +17,8 @@ export class EquipoService {
     findAllComponentsByIdEquipo(id: number): Observable<any> {
         return this.httpClient.get(`${this.url}/${id}/componentes`);
     }
+
+    public save(data: any): Observable<any> {
+        return this.httpClient.post(this.url + "/crear", data);
+    }
 }
