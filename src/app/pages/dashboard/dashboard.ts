@@ -8,10 +8,10 @@ import { AuthService } from '../../services/auth.service';
   templateUrl: './dashboard.html',
   styleUrl: './dashboard.css'
 })
-export class Dashboard implements OnInit{
-  
+export class Dashboard implements OnInit {
+
   authService = inject(AuthService);
-  
+
   // Obtener el rol de la URL
   router: Router = inject(Router);
 
@@ -46,7 +46,7 @@ export class Dashboard implements OnInit{
         color: "from-blue-500 to-cyan-600",
         href: "/home/client-list",
       },
-      
+
     ],
     CLIENTE: [
       {
@@ -55,6 +55,14 @@ export class Dashboard implements OnInit{
         icon: "fas fa-cogs",
         color: "from-purple-500 to-violet-600",
         href: "registrar-equipo.html",
+      },
+
+      {
+        title: "Registrar Componente",
+        description: "Registrar Componente",
+        icon: "fas fa-clipboard-list",
+        color: "from-orange-500 to-red-600",
+        href: "/home/component",
       },
       {
         title: "Registrar Solicitud",
