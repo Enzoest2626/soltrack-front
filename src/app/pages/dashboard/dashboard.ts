@@ -54,7 +54,7 @@ export class Dashboard implements OnInit {
         description: "Registrar equipos para análisis de lubricantes",
         icon: "fas fa-cogs",
         color: "from-purple-500 to-violet-600",
-        href: "registrar-equipo.html",
+        href: "/home/equipo",
       },
 
       {
