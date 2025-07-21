@@ -1,0 +1,16 @@
+import { HttpClient } from "@angular/common/http";
+import { inject, Injectable } from "@angular/core";
+import { Observable } from "rxjs";
+
+@Injectable({
+    providedIn: 'root'
+})
+export class MuestraService {
+    private httpClient: HttpClient = inject(HttpClient);
+
+    private url: string = 'http://localhost:8080/muestras';
+
+    public save(id: number, data: any): Observable<any> {
+        return this.httpClient.post(`${this.url}/${id}/registrar`, data);
+    }
+}
