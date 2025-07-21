@@ -7,6 +7,7 @@ import { Dashboard } from './pages/dashboard/dashboard';
 import { Home } from './base/home/home';
 import { ListClient } from './pages/list-client/list-client';
 import { ListLubricant } from './pages/list-lubricant/list-lubricant';
+import { Application } from './pages/application/application';
 
 export const routes: Routes = [
     { path: '', component: AuthPageComponent },
@@ -34,6 +35,10 @@ export const routes: Routes = [
             {
                 path: 'lubricant-list',
                 component: ListLubricant
+            },
+            {
+                path: 'application',
+                component: Application
             },
             {
                 path: '**',
