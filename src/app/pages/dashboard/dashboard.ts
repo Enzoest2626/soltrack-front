@@ -64,13 +64,20 @@ export class Dashboard implements OnInit{
         href: "registrar-solicitud.html",
       },
     ],
-    analista: [
+    ANALISTA: [
       {
         title: "Registrar Resultados",
         description: "Ingresar resultados de análisis de muestras",
         icon: "fas fa-microscope",
         color: "from-indigo-500 to-purple-600",
-        href: "registrar-resultados.html",
+        href: "/home/registrar-resultados",
+      },
+      {
+        title: "Listar Resultados",
+        description: "Ver todos los resultados de análisis registrados",
+        icon: "fas fa-list",
+        color: "from-green-500 to-emerald-600",
+        href: "/home/resultado-list",
       },
     ],
   };
