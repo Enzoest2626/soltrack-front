@@ -48,7 +48,7 @@ export class Dashboard implements OnInit{
       },
       
     ],
-    cliente: [
+    CLIENTE: [
       {
         title: "Registrar Equipo",
         description: "Registrar equipos para análisis de lubricantes",
@@ -61,7 +61,7 @@ export class Dashboard implements OnInit{
         description: "Crear solicitudes de análisis de muestras",
         icon: "fas fa-clipboard-list",
         color: "from-orange-500 to-red-600",
-        href: "registrar-solicitud.html",
+        href: "/home/application",
       },
     ],
     ANALISTA: [

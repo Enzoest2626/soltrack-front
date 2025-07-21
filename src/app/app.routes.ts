@@ -9,6 +9,7 @@ import { ListClient } from './pages/list-client/list-client';
 import { ListLubricant } from './pages/list-lubricant/list-lubricant';
 import { RegistrarResultados } from './pages/registrar-resultados/registrar-resultados';
 import { ListResultado } from './pages/list-resultado/list-resultado';
+import { Application } from './pages/application/application';
 
 export const routes: Routes = [
     { path: '', component: AuthPageComponent },
@@ -36,6 +37,10 @@ export const routes: Routes = [
             {
                 path: 'lubricant-list',
                 component: ListLubricant
+            },
+            {
+                path: 'application',
+                component: Application
             },
             {
                 path: 'resultado-list',
